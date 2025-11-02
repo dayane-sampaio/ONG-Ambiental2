@@ -1,0 +1,147 @@
+/* === DESIGN SYSTEM === */
+:root {
+  /* 🎨 Cores */
+  --primary-color: #1b5e20;
+  --primary-light: #4caf50;
+  --secondary-color: #81c784;
+  --accent-color: #a5d6a7;
+  --neutral-dark: #212121;
+  --neutral-medium: #9e9e9e;
+  --neutral-light: #f5f5f5;
+  --white: #ffffff;
+  --error-color: #d32f2f;
+
+  /* ✍️ Tipografia */
+  --font-size-xxl: 2.5rem;
+  --font-size-xl: 2rem;
+  --font-size-lg: 1.5rem;
+  --font-size-md: 1rem;
+  --font-size-sm: 0.875rem;
+
+  /* 📏 Espaçamento modular */
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* 🧱 Grid */
+  --max-width: 1200px;
+  --columns: 12;
+}
+
+/* === ESTRUTURA BASE === */
+.container {
+  width: min(100% - var(--space-32), var(--max-width));
+  margin-inline: auto;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: var(--space-16);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img {
+  height: 50px;
+}
+
+nav ul {
+  display: flex;
+  gap: var(--space-24);
+}
+
+nav a:hover {
+  color: var(--secondary-color);
+}
+
+/* === GRID PRINCIPAL (12 colunas) === */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-16);
+}
+
+/* === SEÇÕES === */
+section {
+  padding: var(--space-48) var(--space-16);
+}
+
+.hero {
+  background: url('../images/banner-home.jpg') center/cover no-repeat;
+  color: var(--white);
+  text-align: center;
+  padding: var(--space-64) var(--space-16);
+}
+
+.hero h1 {
+  font-size: var(--font-size-xxl);
+}
+
+.footer {
+  background-color: var(--neutral-dark);
+  color: var(--white);
+  text-align: center;
+  padding: var(--space-24);
+}
+
+/* === RESPONSIVIDADE === */
+/* Mobile primeiro */
+@media (max-width: 480px) {
+  nav ul {
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+}
+
+/* Tablet pequeno */
+@media (min-width: 481px) and (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Tablet grande */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+/* Notebook */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+/* Desktop grande */
+@media (min-width: 1441px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+/* === Extra small devices (smartphones menores que 360px) === */
+@media (max-width: 360px) {
+  body {
+    font-size: var(--font-size-sm);
+  }
+
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: var(--font-size-lg);
+  }
+
+  .button {
+    font-size: var(--font-size-sm);
+    padding: var(--space-8) var(--space-16);
+  }
+}
